@@ -14,14 +14,17 @@ function todoAdd() {
   } else {
     cardAdd.innerHTML += `
     <div class="card-body my-0">
-      <div class="d-flex justify-content-evenly">
-      <h5>${newValue}</h5>
-        <span class="badge text-bg-danger" id="delete">X</span>
-        <span class="badge text-bg-success" id="progres">In Progress</span>
+      <div class="d-flex justify-content-between">
+        <div>
+          <h5>${newValue}</h5>
+        </div>
+        <div>
+          <span class="badge text-bg-danger" id="delete">X</span>
+          <span class="badge text-bg-success" id="progres">In Progress</span>
+        </div>
       </div>
     </div>
-    
-    `;
+     `;
     formInput.value = "";
   }
 }
@@ -41,27 +44,37 @@ todosDiv.addEventListener("click", (e) => {
     console.log(e.target.parentElement.parentElement);
     e.target.parentElement.parentElement.remove();
   } else if (e.target.classList.contains("text-bg-success")) {
-    let text = e.target.parentElement.children[0].innerText;
+    let text = e.target.parentElement.previousElementSibling.children[0].innerText;
+    console.log(text);
     progress.innerHTML += `
     <div class="card-body my-0">
-    <div class="d-flex justify-content-evenly">
-    <h5>${text}</h5>
-      <span class="badge text-bg-danger" id="delete">X</span>
-      <span class="badge text-bg-info" id="progres">Done</span>
+    <div class="d-flex justify-content-between">
+      <div>
+        <h5>${text}</h5>
+      </div>
+      <div>
+        <span class="badge text-bg-danger" id="delete">X</span>
+        <span class="badge text-bg-info" id="progres">Done</span>
+      </div>
     </div>
   </div>
   `;
     e.target.parentElement.parentElement.remove();
   } else if (e.target.classList.contains("text-bg-info")) {
-    let text = e.target.parentElement.children[0].innerText;
+    let text = e.target.parentElement.previousElementSibling.children[0].innerText;
     done.innerHTML += `
     <div class="card-body my-0">
-    <div class="d-flex justify-content-evenly">
-    <h5>${text}</h5>
-      <span class="badge text-bg-danger" id="delete">X</span>
+    <div class="d-flex justify-content-between">
+      <div>
+        <h5>${text}</h5>
+      </div>
+      <div>
+        <span class="badge text-bg-danger" id="delete">X</span>
+      </div>
+      </div>
     </div>
-  </div>
     `;
+    
     e.target.parentElement.parentElement.remove();
   }
 });

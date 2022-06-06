@@ -1,4 +1,6 @@
 .container h1 {
-    font-family: "IBM Plex Serif", serif;
-  }
-  
+  font-family: "IBM Plex Serif", serif;
+}
+span {
+  cursor: pointer;
+}
