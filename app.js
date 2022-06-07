@@ -30,7 +30,7 @@ function todoAdd() {
 }
 
 todosDiv.addEventListener("click", (e) => {
-  if (e.target.classList.contains("btn-dark")) {
+  if (e.target.classList.contains("btn-danger")) {
     console.log(e.target.id === "clear-todos");
     // e.target.previousElementSibling.innerHTML = "";
     if (e.target.id === "clear-todos") {
@@ -66,7 +66,7 @@ todosDiv.addEventListener("click", (e) => {
     <div class="card-body my-0">
     <div class="d-flex justify-content-between">
       <div>
-        <h5>${text}</h5>
+        <h5><del>${text}</del></h5>
       </div>
       <div>
         <span class="badge text-bg-danger" id="delete">X</span>
